@@ -11,6 +11,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 class ApiClientBuilder private constructor() {
 
@@ -20,14 +21,22 @@ class ApiClientBuilder private constructor() {
                 .registerTypeAdapter(MtgSet::class.java, MtgSetDeserializer())
                 .registerTypeAdapterFactory(ItemTypeAdapterFactory())
                 .create()
-        // TIME OUT
-        val okHttpClient: OkHttpClient = OkHttpClient().newBuilder().build()
+
+        val okHttpClient: OkHttpClient = OkHttpClient()
+        .newBuilder().build()
+
+        var m_client =  OkHttpClient.Builder()
+        .connectTimeout(10, TimeUnit.SECONDS)
+        .writeTimeout(10, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .build();
+        
 
         val INSTANCE: Retrofit = Retrofit.Builder()
                 .baseUrl("https://api.magicthegathering.io/v1/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .client(okHttpClient)
+                .client(m_client)
                 .build()
     }
 
