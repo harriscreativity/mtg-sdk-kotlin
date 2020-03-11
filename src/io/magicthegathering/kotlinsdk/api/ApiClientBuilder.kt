@@ -20,7 +20,7 @@ class ApiClientBuilder private constructor() {
                 .registerTypeAdapter(MtgSet::class.java, MtgSetDeserializer())
                 .registerTypeAdapterFactory(ItemTypeAdapterFactory())
                 .create()
-
+        // TIME OUT
         val okHttpClient: OkHttpClient = OkHttpClient().newBuilder().build()
 
         val INSTANCE: Retrofit = Retrofit.Builder()
