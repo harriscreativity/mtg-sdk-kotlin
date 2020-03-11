@@ -13,15 +13,20 @@ Download
 First of all, be sure you have the **jcenter repository** included in the `build.gradle` file in the root of your project.
 
 ```
-repositories {
-    jcenter()
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
 }
 ```
+
 
 Next add the gradle compile dependency to the `build.gradle` file of your app module.
 
 ```
-implementation 'io.magicthegathering:kotlinsdk:1.0.5'
+implementation 'com.github.harriscreativity:mtg-sdk-kotlin:1.0.5'
 ```
 
 Prerequisites
