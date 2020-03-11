@@ -5,10 +5,6 @@ Kotlin SDK for using the [magicthegathering.io](http://magicthegathering.io) API
 
 Note that API use is free and does not require authentication or registration, but some rate limits apply. [Read the official API website for more information](https://docs.magicthegathering.io/#documentationrate_limits).
 
-| Bintray JCenter | Build Status |
-|:---------------:|:------------:|
-| [ ![jcenter](https://api.bintray.com/packages/asantalla/develoop/magicthegatheringio-kotlin-sdk/images/download.svg) ](https://bintray.com/asantalla/develoop/magicthegatheringio-kotlin-sdk/_latestVersion) | [![Build Status](https://travis-ci.org/MagicTheGathering/mtg-sdk-kotlin.svg?branch=develop)](https://travis-ci.org/MagicTheGathering/mtg-sdk-kotlin) |
-
 Add the dependency to your project and you're good to go!
  
 Download
